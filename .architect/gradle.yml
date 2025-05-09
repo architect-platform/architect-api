@@ -1,0 +1,5 @@
+gradle:
+  projects:
+    - name: architect-api
+      path: .
+      githubPackageRelease: true
