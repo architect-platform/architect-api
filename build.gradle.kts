@@ -8,6 +8,17 @@ version = "0.1.1"
 java {
 	withSourcesJar()
 	withJavadocJar()
+	sourceCompatibility = JavaVersion.toVersion("17")
+}
+
+kotlin {
+	jvmToolchain {
+		languageVersion.set(JavaLanguageVersion.of(17))
+	}
+}
+
+repositories {
+	mavenCentral()
 }
 
 publishing {
