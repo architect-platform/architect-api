@@ -39,8 +39,8 @@ publishing {
 			name = "GitHubPackages"
 			url = uri("https://maven.pkg.github.com/architect-platform/architect-api")
 			credentials {
-				username = project.findProperty("githubUser") as String?
-				password = project.findProperty("githubToken") as String?
+				username = System.getenv("GITHUB_USER") ?: project.findProperty("githubUser") as String? ?: "github-actions"
+				password = System.getenv("GITHUB_TOKEN") ?: project.findProperty("githubToken") as String?
 			}
 		}
 	}
