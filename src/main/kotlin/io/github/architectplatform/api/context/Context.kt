@@ -1,4 +1,6 @@
 package io.github.architectplatform.api.context
 
-interface Context {
-}
+/**
+ * A context is a set of information that is passed to a task.
+ */
+interface Context

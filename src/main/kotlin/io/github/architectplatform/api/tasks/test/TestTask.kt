@@ -2,4 +2,10 @@ package io.github.architectplatform.api.tasks.test
 
 import io.github.architectplatform.api.tasks.Task
 
-interface TestTask : Task<TestTaskResult>
+/**
+ * A task that runs tests in a project.
+ *
+ * @see Task
+ * @see TestTaskCommandResult
+ */
+interface TestTask : Task<TestTaskCommandResult>
