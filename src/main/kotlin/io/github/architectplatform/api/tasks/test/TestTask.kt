@@ -6,6 +6,6 @@ import io.github.architectplatform.api.tasks.Task
  * A task that runs tests in a project.
  *
  * @see Task
- * @see TestTaskCommandResult
+ * @see TestTaskResult
  */
-interface TestTask : Task<TestTaskCommandResult>
+interface TestTask : Task<TestTaskResult>

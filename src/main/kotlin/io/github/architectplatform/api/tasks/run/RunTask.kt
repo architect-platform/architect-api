@@ -6,6 +6,6 @@ import io.github.architectplatform.api.tasks.Task
  * A task that runs a project.
  *
  * @see Task
- * @see RunTaskCommandResult
+ * @see RunTaskResult
  */
-interface RunTask : Task<RunTaskCommandResult>
+interface RunTask : Task<RunTaskResult>

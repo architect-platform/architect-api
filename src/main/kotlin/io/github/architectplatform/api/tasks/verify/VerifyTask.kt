@@ -6,6 +6,6 @@ import io.github.architectplatform.api.tasks.Task
  * A task that verifies a project.
  *
  * @see Task
- * @see VerifyTaskCommandResult
+ * @see VerifyTaskResult
  */
-interface VerifyTask : Task<VerifyTaskCommandResult>
+interface VerifyTask : Task<VerifyTaskResult>

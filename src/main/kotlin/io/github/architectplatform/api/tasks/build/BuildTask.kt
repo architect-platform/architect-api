@@ -6,6 +6,6 @@ import io.github.architectplatform.api.tasks.Task
  * A task that builds a project.
  *
  * @see Task
- * @see BuildCommandResult
+ * @see BuildTaskResult
  */
-interface BuildTask : Task<BuildCommandResult>
+interface BuildTask : Task<BuildTaskResult>

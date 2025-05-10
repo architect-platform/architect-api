@@ -6,7 +6,7 @@ import io.github.architectplatform.api.tasks.Task
  * A task that publishes a project.
  *
  * @see Task
- * @see PublishTaskCommandResult
+ * @see PublishTaskResult
  */
-interface PublishTask : Task<PublishTaskCommandResult>
+interface PublishTask : Task<PublishTaskResult>
 
