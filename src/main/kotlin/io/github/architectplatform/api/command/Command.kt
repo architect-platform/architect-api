@@ -34,3 +34,4 @@ interface Command<Req: CommandRequest, Res: CommandResult> {
 	 */
 	fun execute(request: Req): Res
 }
+
