@@ -10,4 +10,4 @@ import io.github.architectplatform.api.tasks.Task
  * @see Task
  * @see PreCommitPhaseResult
  */
-interface PrePushPhase : Phase<PreCommitPhaseResult>
+interface PrePushPhase : Phase<PrePushPhaseResult>
