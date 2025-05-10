@@ -10,7 +10,7 @@ package io.github.architectplatform.api.command
  * @property description A brief description of the command.
  * @property usage A string that describes how to use the command.
  */
-interface Command<Req: CommandRequest, Res: CommandResult> {
+interface Command<Res: CommandResult> {
 
 	/**
 	 * The name of the command.
@@ -32,6 +32,6 @@ interface Command<Req: CommandRequest, Res: CommandResult> {
 	/**
 	 * Executes the command with the given request and returns the result.
 	 */
-	fun execute(request: Req): Res
+	fun execute(request: CommandRequest): Res
 }
 
