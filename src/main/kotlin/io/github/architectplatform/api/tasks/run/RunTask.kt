@@ -8,4 +8,4 @@ import io.github.architectplatform.api.tasks.Task
  * @see Task
  * @see RunTaskResult
  */
-interface RunTask : Task<RunTaskResult>
+abstract class RunTask : Task<RunTaskResult>()

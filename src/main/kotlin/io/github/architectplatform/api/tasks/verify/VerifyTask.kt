@@ -8,4 +8,4 @@ import io.github.architectplatform.api.tasks.Task
  * @see Task
  * @see VerifyTaskResult
  */
-interface VerifyTask : Task<VerifyTaskResult>
+abstract class VerifyTask : Task<VerifyTaskResult>()

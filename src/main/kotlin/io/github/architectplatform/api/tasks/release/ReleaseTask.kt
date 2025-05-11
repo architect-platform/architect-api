@@ -8,5 +8,5 @@ import io.github.architectplatform.api.tasks.Task
  * @see Task
  * @see ReleaseTaskResult
  */
-interface ReleaseTask : Task<ReleaseTaskResult>
+abstract class ReleaseTask : Task<ReleaseTaskResult>()
 

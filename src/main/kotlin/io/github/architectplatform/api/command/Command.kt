@@ -1,5 +1,7 @@
 package io.github.architectplatform.api.command
 
+import io.github.architectplatform.api.context.Context
+
 /**
  * Represents a command that can be executed with a specific request to produce a result.
  *
@@ -10,7 +12,7 @@ package io.github.architectplatform.api.command
  * @property description A brief description of the command.
  * @property usage A string that describes how to use the command.
  */
-interface Command<Res: CommandResult> {
+interface Command<Res : CommandResult> {
 
 	/**
 	 * The name of the command.
@@ -28,6 +30,8 @@ interface Command<Res: CommandResult> {
 	 */
 	val usage: String
 		get() = "No usage provided"
+
+	fun initialize(context: Context)
 
 	/**
 	 * Executes the command with the given request and returns the result.

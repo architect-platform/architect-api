@@ -8,7 +8,7 @@ import io.github.architectplatform.api.context.Context
  *
  * @param C the type of context that the plugin uses.
  */
-interface Plugin<C: Context> {
+interface Plugin {
 
 	/**
 	 * The context that the plugin uses.
@@ -30,7 +30,12 @@ interface Plugin<C: Context> {
 	/**
 	 * The commands that the plugin provides.
 	 */
-	var commands: List<Command<*>>
+	fun getCommands(): List<Command<*>>
 
-	var context: Context
+	fun initialize(context: Context) {
+		getCommands().forEach { command ->
+			command.initialize(context)
+		}
+	}
+
 }

@@ -1,6 +1,6 @@
 package io.github.architectplatform.api.tasks
 
-import io.github.architectplatform.api.command.Command
+import io.github.architectplatform.api.command.AbstractCommand
 import io.github.architectplatform.api.command.CommandResult
 
-interface Task<T: CommandResult>: Command<T>
+abstract class Task<T : CommandResult> : AbstractCommand<T>()
