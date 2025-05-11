@@ -30,5 +30,7 @@ interface Plugin<C: Context> {
 	/**
 	 * The commands that the plugin provides.
 	 */
-	val commands: List<Command<*>>
+	var commands: List<Command<*>>
+
+	var context: Context
 }
