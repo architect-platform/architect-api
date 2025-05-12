@@ -1,16 +1,13 @@
 package io.github.architectplatform.api.command
 
-interface CommandResult {
-	val success: Boolean
-		get() = false
-	val output: String
-		get() = ""
+open class CommandResult(val success: Boolean, val output: String) {
+	companion object {
+		fun success(output: String): CommandResult {
+			return CommandResult(true, output)
+		}
 
-	data class Success(override val output: String) : CommandResult {
-		override val success: Boolean = true
-	}
-
-	data class Failure(override val output: String) : CommandResult {
-		override val success: Boolean = false
+		fun failure(output: String): CommandResult {
+			return CommandResult(false, output)
+		}
 	}
 }
