@@ -1,6 +1,5 @@
 package io.github.architectplatform.api.phases
 
-import io.github.architectplatform.api.command.Command
-import io.github.architectplatform.api.command.CommandResult
+import io.github.architectplatform.api.command.AbstractCommand
 
-interface Phase<T: PhaseResult>: Command<T>
+abstract class Phase<T : PhaseResult> : AbstractCommand<T>()

@@ -9,4 +9,4 @@ import io.github.architectplatform.api.tasks.Task
  * @see Task
  * @see PreCommitPhaseResult
  */
-interface PreCommitPhase : Phase<PreCommitPhaseResult>
+abstract class PreCommitPhase : Phase<PreCommitPhaseResult>()

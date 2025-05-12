@@ -4,8 +4,7 @@ import io.github.architectplatform.api.context.Context
 
 abstract class AbstractCommand<Res : CommandResult> : Command<Res> {
 
-	var context: Context? = null
-		private set
+	var context: Context = emptyMap()
 
 	override fun initialize(context: Context) {
 		this.context = context
