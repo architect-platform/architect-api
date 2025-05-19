@@ -1,15 +1,18 @@
 package io.github.architectplatform.api.tasks
 
-import io.github.architectplatform.api.command.CommandResult
+interface TaskResult {
+	val success: Boolean
+	val message: String?
 
-open class TaskResult(success: Boolean, output: String) : CommandResult(success, output) {
 	companion object {
-		fun success(output: String): TaskResult {
-			return TaskResult(true, output)
+		fun Success(message: String? = null): TaskResult = object : TaskResult {
+			override val success: Boolean = true
+			override val message: String? = message
 		}
 
-		fun failure(output: String): TaskResult {
-			return TaskResult(false, output)
+		fun Failure(message: String? = null): TaskResult = object : TaskResult {
+			override val success: Boolean = false
+			override val message: String? = message
 		}
 	}
 }

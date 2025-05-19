@@ -1,12 +1,12 @@
 package io.github.architectplatform.api.tasks
 
-import io.github.architectplatform.api.command.AbstractCommand
-import io.github.architectplatform.api.command.CommandRequest
-import io.github.architectplatform.api.command.CommandResult
+import io.github.architectplatform.api.project.ProjectContext
 
-abstract class Task<T : CommandResult> : AbstractCommand<T>() {
-	abstract fun executeTask(path: String): T
-	override fun execute(request: CommandRequest): T {
-		return executeTask(request.path)
-	}
+/**
+ * Core abstraction for a unit of work. Plugins register Activities tied to an AssetPhase.
+ */
+interface Task {
+	val id: String
+	fun execute(ctx: ProjectContext): TaskResult
 }
+
