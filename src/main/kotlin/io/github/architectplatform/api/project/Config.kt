@@ -1,7 +1,7 @@
-package io.github.architectplatform.api.context
+package io.github.architectplatform.api.project
 
 /**
- * A context is a set of information that is passed to a task.
+ * A config is a set of information that is passed to a task.
  */
 typealias Config = Map<String, Any>
 
@@ -14,7 +14,7 @@ fun <T> Config.getKey(key: String): T? {
 		} else if (current is List<*>) {
 			current = current[k.toIntOrNull() ?: throw IllegalArgumentException("Invalid index: $k")]
 		} else {
-			throw IllegalStateException("Invalid context type: ${current?.javaClass}")
+			throw IllegalStateException("Invalid config type: ${current?.javaClass}")
 		}
 	}
 	return current as? T

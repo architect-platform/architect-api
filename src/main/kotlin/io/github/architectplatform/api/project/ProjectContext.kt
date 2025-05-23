@@ -1,6 +1,5 @@
 package io.github.architectplatform.api.project
 
-import io.github.architectplatform.api.context.Config
 import java.nio.file.Path
 
 
@@ -10,5 +9,5 @@ import java.nio.file.Path
 interface ProjectContext {
 	val dir: Path
 	val config: Config
-	fun <T : Any> service(type: Class<T>): T
+	fun <T> service(type: Class<T>): T
 }

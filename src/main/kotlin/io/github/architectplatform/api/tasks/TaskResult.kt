@@ -5,14 +5,19 @@ interface TaskResult {
 	val message: String?
 
 	companion object {
-		fun Success(message: String? = null): TaskResult = object : TaskResult {
-			override val success: Boolean = true
-			override val message: String? = message
-		}
+		data class TaskResultImpl(
+			override val success: Boolean,
+			override val message: String? = null,
+		) : TaskResult
 
-		fun Failure(message: String? = null): TaskResult = object : TaskResult {
-			override val success: Boolean = false
-			override val message: String? = message
-		}
+		fun success(message: String? = null): TaskResult = TaskResultImpl(
+			success = true,
+			message = message
+		)
+
+		fun failure(message: String? = null): TaskResult = TaskResultImpl(
+			success = false,
+			message = message
+		)
 	}
 }
