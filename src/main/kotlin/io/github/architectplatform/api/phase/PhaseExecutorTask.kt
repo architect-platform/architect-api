@@ -5,13 +5,14 @@ import io.github.architectplatform.api.tasks.Task
 import io.github.architectplatform.api.tasks.TaskRegistry
 import io.github.architectplatform.api.tasks.TaskResult
 
-class PhaseExecutorTask<P : Phase>(val phase: P, private val registry: TaskRegistry) : Task {
+class PhaseExecutorTask(val phase: Phase, private val registry: TaskRegistry) : Task {
 	override val id: String = phase.phaseName
+
+	override fun phase(): Phase? = phase.parent
 
 	override fun execute(ctx: ProjectContext): TaskResult {
 		println("$id-executor: Executing phase: $phase")
-		val children = registry.all().filterIsInstance<PhaseTask<P>>()
-			.filter { it.phase == phase }
+		val children = registry.all().filter { it.phase()?.phaseName == phase.phaseName }
 
 		println("$id-executor: Found ${children.size} tasks for phase: $phase")
 		children.forEach {

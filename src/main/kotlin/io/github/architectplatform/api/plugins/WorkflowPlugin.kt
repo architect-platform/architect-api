@@ -1,6 +1,7 @@
-package io.github.architectplatform.api.phase
+package io.github.architectplatform.api.plugins
 
-import io.github.architectplatform.api.plugins.ArchitectPlugin
+import io.github.architectplatform.api.phase.Phase
+import io.github.architectplatform.api.phase.PhaseExecutorTask
 import io.github.architectplatform.api.tasks.TaskRegistry
 
 abstract class WorkflowPlugin(override val id: String, private val phases: List<Phase>) : ArchitectPlugin {

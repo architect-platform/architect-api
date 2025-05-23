@@ -1,6 +1,6 @@
 package io.github.architectplatform.api.workflows.code
 
-import io.github.architectplatform.api.phase.SubPhase
+import io.github.architectplatform.api.phase.Phase
 import io.github.architectplatform.api.workflows.core.CoreWorkflow
 
 /**
@@ -8,8 +8,8 @@ import io.github.architectplatform.api.workflows.core.CoreWorkflow
  */
 enum class CodeWorkflow(
 	override val parent: CoreWorkflow,
-	override val phaseName: String = parent.phaseName,
-) : SubPhase<CoreWorkflow> {
+	override val phaseName: String = "CODE-" + parent.phaseName,
+) : Phase {
 
 	INIT(CoreWorkflow.INIT),
 	LINT(CoreWorkflow.LINT),

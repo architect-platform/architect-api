@@ -15,4 +15,5 @@ enum class CoreWorkflow(override val phaseName: String) : Phase {
 	TEST("test"),
 	RELEASE("release");
 
+	override val parent: Phase? = null
 }

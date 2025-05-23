@@ -1,5 +1,6 @@
 package io.github.architectplatform.api.tasks
 
+import io.github.architectplatform.api.phase.Phase
 import io.github.architectplatform.api.project.ProjectContext
 
 /**
@@ -7,6 +8,7 @@ import io.github.architectplatform.api.project.ProjectContext
  */
 interface Task {
 	val id: String
+	fun phase(): Phase? = null
 	fun execute(ctx: ProjectContext): TaskResult
 }
 
