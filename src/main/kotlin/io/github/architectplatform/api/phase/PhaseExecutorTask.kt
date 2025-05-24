@@ -15,14 +15,15 @@ class PhaseExecutorTask(val phase: Phase, private val registry: TaskRegistry) : 
 		val children = registry.all().filter { it.phase()?.phaseName == phase.phaseName }
 
 		println("$id-executor: Found ${children.size} tasks for phase: $phase")
-		children.forEach {
-			println("$id-executor: Executing task: ${it.id}")
-			val result = it.execute(ctx)
-			println("$id-executor: Finished executing task: ${it.id} with result: $result")
+		val results = children.map { task ->
+			println("$id-executor: Executing task: ${task.id}")
+			val taskResult = task.execute(ctx)
+			println("$id-executor: Finished executing task: ${task.id} with result: ${taskResult.success}")
+			taskResult
 		}
 
 		println("$id-executor: Finished executing phase: $phase")
-		return TaskResult.success("Executed phase: $phase")
+		return TaskResult.success("Executed phase: $phase", results = results)
 	}
 
 	override fun toString(): String {
