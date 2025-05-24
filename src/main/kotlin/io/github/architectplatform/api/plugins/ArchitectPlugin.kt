@@ -8,14 +8,12 @@ import io.github.architectplatform.api.tasks.TaskRegistry
 interface ArchitectPlugin<C> {
 	val id: String
 	val contextKey: String
-	val contextClass: Class<C>
-	var context: C?
-		get() = null
-		set(value) {}
+	val ctxClass: Class<C>
+	var context: C
 
-	fun init(context: Any?) {
+	fun init(context: Any) {
 		@Suppress("UNCHECKED_CAST")
-		this.context = context as? C
+		this.context = context as C
 	}
 
 	fun register(registry: TaskRegistry)
