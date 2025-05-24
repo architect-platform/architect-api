@@ -9,6 +9,6 @@ import io.github.architectplatform.api.project.ProjectContext
 interface Task {
 	val id: String
 	fun phase(): Phase? = null
-	fun execute(ctx: ProjectContext): TaskResult
+	fun execute(ctx: ProjectContext, args: List<String> = emptyList()): TaskResult
 }
 
