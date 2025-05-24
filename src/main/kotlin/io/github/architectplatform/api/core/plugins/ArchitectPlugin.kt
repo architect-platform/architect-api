@@ -1,6 +1,6 @@
-package io.github.architectplatform.api.plugins
+package io.github.architectplatform.api.core.plugins
 
-import io.github.architectplatform.api.tasks.TaskRegistry
+import io.github.architectplatform.api.core.tasks.TaskRegistry
 
 /**
  * Plugin interface for registering Activities.

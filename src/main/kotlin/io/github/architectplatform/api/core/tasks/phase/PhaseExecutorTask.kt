@@ -1,9 +1,9 @@
-package io.github.architectplatform.api.phase
+package io.github.architectplatform.api.core.tasks.phase
 
-import io.github.architectplatform.api.project.ProjectContext
-import io.github.architectplatform.api.tasks.Task
-import io.github.architectplatform.api.tasks.TaskRegistry
-import io.github.architectplatform.api.tasks.TaskResult
+import io.github.architectplatform.api.core.project.ProjectContext
+import io.github.architectplatform.api.core.tasks.Task
+import io.github.architectplatform.api.core.tasks.TaskRegistry
+import io.github.architectplatform.api.core.tasks.TaskResult
 
 class PhaseExecutorTask(val phase: Phase, private val registry: TaskRegistry) : Task {
 	override val id: String = phase.phaseName

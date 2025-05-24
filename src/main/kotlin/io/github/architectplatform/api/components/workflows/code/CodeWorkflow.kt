@@ -1,7 +1,7 @@
-package io.github.architectplatform.api.workflows.code
+package io.github.architectplatform.api.components.workflows.code
 
-import io.github.architectplatform.api.phase.Phase
-import io.github.architectplatform.api.workflows.core.CoreWorkflow
+import io.github.architectplatform.api.components.workflows.core.CoreWorkflow
+import io.github.architectplatform.api.core.tasks.phase.Phase
 
 /**
  * Code asset sub-phases.
@@ -18,5 +18,6 @@ enum class CodeWorkflow(
 	TEST(CoreWorkflow.TEST),
 	RUN(CoreWorkflow.RUN),
 	RELEASE(CoreWorkflow.RELEASE),
+	PUBLISH(CoreWorkflow.PUBLISH),
 }
 

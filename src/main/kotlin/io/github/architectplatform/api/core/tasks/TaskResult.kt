@@ -1,4 +1,4 @@
-package io.github.architectplatform.api.tasks
+package io.github.architectplatform.api.core.tasks
 
 interface TaskResult {
 	val success: Boolean

@@ -1,4 +1,4 @@
-package io.github.architectplatform.api.project
+package io.github.architectplatform.api.core.project
 
 /**
  * A config is a set of information that is passed to a task.

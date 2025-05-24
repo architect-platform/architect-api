@@ -1,6 +1,6 @@
-package io.github.architectplatform.api.workflows.hooks
+package io.github.architectplatform.api.components.workflows.hooks
 
-import io.github.architectplatform.api.phase.Phase
+import io.github.architectplatform.api.core.tasks.phase.Phase
 
 /**
  * Code asset sub-phases.

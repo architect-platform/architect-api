@@ -1,4 +1,4 @@
-package io.github.architectplatform.api.project
+package io.github.architectplatform.api.core.project
 
 import java.nio.file.Path
 
