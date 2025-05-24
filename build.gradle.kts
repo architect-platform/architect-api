@@ -3,7 +3,7 @@ plugins {
 	`maven-publish`
 }
 group = "io.github.architectplatform"
-version = "1.13.0"
+version = "1.14.0"
 
 java {
 	withSourcesJar()
