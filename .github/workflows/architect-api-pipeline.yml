@@ -12,6 +12,7 @@ on:
 
 env:
   REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -41,7 +42,10 @@ jobs:
           node-version: 20
 
       - name: Set up Architect
-        run: curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/.installers/bash-ci | bash
+        run: |
+          curl -sSL https://raw.githubusercontent.com/architect-platform/architect-cli/main/.installers/bash-ci | bash
+          curl -sSL https://raw.githubusercontent.com/architect-platform/architect-engine/main/.installers/bash-ci | bash
+          architect-engine &
 
       - name: Init
         run: architect init
@@ -57,6 +61,8 @@ jobs:
 
       - name: Release
         run: architect release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+      - name: Publish
+        run: architect publish
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
