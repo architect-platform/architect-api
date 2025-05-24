@@ -3,21 +3,25 @@ package io.github.architectplatform.api.tasks
 interface TaskResult {
 	val success: Boolean
 	val message: String?
+	val results: List<TaskResult>
 
 	companion object {
 		data class TaskResultImpl(
 			override val success: Boolean,
 			override val message: String? = null,
+			override val results: List<TaskResult> = emptyList(),
 		) : TaskResult
 
-		fun success(message: String? = null): TaskResult = TaskResultImpl(
+		fun success(message: String? = null, results: List<TaskResult> = emptyList()): TaskResult = TaskResultImpl(
 			success = true,
-			message = message
+			message = message,
+			results = results
 		)
 
-		fun failure(message: String? = null): TaskResult = TaskResultImpl(
+		fun failure(message: String? = null, results: List<TaskResult> = emptyList()): TaskResult = TaskResultImpl(
 			success = false,
-			message = message
+			message = message,
+			results = results
 		)
 	}
 }
