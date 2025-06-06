@@ -7,8 +7,8 @@ import io.github.architectplatform.api.core.tasks.phase.Phase
  * Code asset sub-phases.
  */
 enum class CodeWorkflow(
-	override val parent: CoreWorkflow,
-	override val phaseName: String = "CODE-" + parent.phaseName,
+	private val parent: CoreWorkflow,
+	override val id: String = "CODE-" + parent.id,
 ) : Phase {
 
 	INIT(CoreWorkflow.INIT),
@@ -18,6 +18,10 @@ enum class CodeWorkflow(
 	TEST(CoreWorkflow.TEST),
 	RUN(CoreWorkflow.RUN),
 	RELEASE(CoreWorkflow.RELEASE),
-	PUBLISH(CoreWorkflow.PUBLISH),
+	PUBLISH(CoreWorkflow.PUBLISH);
+
+	override fun parent(): Phase {
+		return parent
+	}
 }
 

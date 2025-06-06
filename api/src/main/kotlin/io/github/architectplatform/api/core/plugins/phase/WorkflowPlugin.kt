@@ -1,5 +1,6 @@
-package io.github.architectplatform.api.core.plugins
+package io.github.architectplatform.api.core.plugins.phase
 
+import io.github.architectplatform.api.core.plugins.ArchitectPlugin
 import io.github.architectplatform.api.core.tasks.phase.Phase
 import io.github.architectplatform.api.core.tasks.phase.PhaseExecutorTask
 import io.github.architectplatform.api.core.tasks.TaskRegistry

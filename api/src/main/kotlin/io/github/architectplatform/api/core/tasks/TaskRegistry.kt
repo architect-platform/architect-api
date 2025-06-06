@@ -5,5 +5,6 @@ package io.github.architectplatform.api.core.tasks
  */
 interface TaskRegistry {
 	fun add(task: Task)
+	fun get(id: String): Task?
 	fun all(): List<Task>
 }

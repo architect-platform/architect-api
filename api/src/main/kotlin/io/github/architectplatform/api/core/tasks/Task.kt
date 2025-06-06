@@ -1,7 +1,7 @@
 package io.github.architectplatform.api.core.tasks
 
-import io.github.architectplatform.api.core.tasks.phase.Phase
 import io.github.architectplatform.api.core.project.ProjectContext
+import io.github.architectplatform.api.core.tasks.phase.Phase
 
 /**
  * Core abstraction for a unit of work. Plugins register Activities tied to an AssetPhase.
@@ -9,6 +9,7 @@ import io.github.architectplatform.api.core.project.ProjectContext
 interface Task {
 	val id: String
 	fun phase(): Phase? = null
-	fun execute(ctx: ProjectContext, args: List<String> = emptyList()): TaskResult
+	fun depends(): List<String> = emptyList()
+	fun execute(environment: Environment, projectContext: ProjectContext, args: List<String> = emptyList()): TaskResult
 }
 

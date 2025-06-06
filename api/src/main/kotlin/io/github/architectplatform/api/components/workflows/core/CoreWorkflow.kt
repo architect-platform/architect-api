@@ -5,7 +5,7 @@ import io.github.architectplatform.api.core.tasks.phase.Phase
 /**
  * Core phases in the project lifecycle.
  */
-enum class CoreWorkflow(override val phaseName: String) : Phase {
+enum class CoreWorkflow(override val id: String) : Phase {
 
 	INIT("init"),
 	LINT("lint"),
@@ -17,5 +17,7 @@ enum class CoreWorkflow(override val phaseName: String) : Phase {
 	PUBLISH("publish"),
 	;
 
-	override val parent: Phase? = null
+	override fun parent(): Phase? {
+		return null // CoreWorkflow does not have a parent phase
+	}
 }
