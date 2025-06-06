@@ -17,5 +17,6 @@ fun <T> Config.getKey(key: String): T? {
 			throw IllegalStateException("Invalid config type: ${current?.javaClass}")
 		}
 	}
+	@Suppress("UNCHECKED_CAST")
 	return current as? T
 }

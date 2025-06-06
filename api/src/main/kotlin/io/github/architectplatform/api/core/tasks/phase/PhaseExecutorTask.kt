@@ -10,6 +10,7 @@ class PhaseExecutorTask(val phase: Phase, private val registry: TaskRegistry) : 
 	override val id: String = phase.id
 
 	override fun phase(): Phase? = phase.parent()
+	override fun depends(): List<String> = phase.depends()
 
 	override fun execute(environment: Environment, projectContext: ProjectContext, args: List<String>): TaskResult {
 		println("$id-executor: Executing phase: $phase")

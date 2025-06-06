@@ -9,7 +9,7 @@ import io.github.architectplatform.api.core.tasks.phase.Phase
 interface Task {
 	val id: String
 	fun phase(): Phase? = null
-	fun depends(): List<String> = emptyList()
+	fun depends(): List<String> = phase()?.depends() ?: emptyList()
 	fun execute(environment: Environment, projectContext: ProjectContext, args: List<String> = emptyList()): TaskResult
 }
 
