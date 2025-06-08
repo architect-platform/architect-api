@@ -6,17 +6,20 @@ import io.github.architectplatform.api.core.tasks.phase.PhaseId
 /** Core phases in the project lifecycle. */
 enum class CoreWorkflow(
     override val id: String,
-    private val dependsOn: List<PhaseId> = emptyList()
+    private val description: String,
+    private val dependsOn: List<PhaseId> = emptyList(),
 ) : Phase {
 
-  INIT("init"),
-  LINT("lint", listOf("init")),
-  VERIFY("verify", listOf("lint")),
-  BUILD("build", listOf("verify")),
-  RUN("run", listOf("build")),
-  TEST("test", listOf("build")),
-  RELEASE("release", listOf("test")),
-  PUBLISH("publish", listOf("release"));
+  INIT("init", "Initialize the project"),
+  LINT("lint", "Lint the project", listOf("init")),
+  VERIFY("verify", "Verify the project", listOf("lint")),
+  BUILD("build", "Build the project", listOf("verify")),
+  RUN("run", "Run the project", listOf("build")),
+  TEST("test", "Test the project", listOf("run")),
+  RELEASE("release", "Release the project", listOf("test")),
+  PUBLISH("publish", "Publish the project", listOf("release"));
+
+  override fun description(): String = description
 
   override fun depends(): List<PhaseId> {
     return dependsOn

@@ -18,6 +18,10 @@ enum class CodeWorkflow(
   RELEASE(CoreWorkflow.RELEASE),
   PUBLISH(CoreWorkflow.PUBLISH);
 
+  override fun description(): String {
+    return "Code workflow phase for ${parent.id} - $id"
+  }
+
   override fun parent(): Phase {
     return parent
   }

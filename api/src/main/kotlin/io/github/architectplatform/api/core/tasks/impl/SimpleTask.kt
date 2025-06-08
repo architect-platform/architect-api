@@ -8,10 +8,13 @@ import io.github.architectplatform.api.core.tasks.phase.Phase
 
 class SimpleTask(
     override val id: String,
+    private val description: String,
     private val phase: Phase,
     private val task: (Environment, ProjectContext) -> TaskResult,
 ) : Task {
   override fun phase(): Phase = phase
+
+  override fun description(): String = description
 
   override fun execute(
       environment: Environment,

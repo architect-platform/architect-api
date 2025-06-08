@@ -7,6 +7,8 @@ import io.github.architectplatform.api.core.tasks.phase.Phase
 interface Task {
   val id: String
 
+  fun description(): String = "No description provided for task $id"
+
   fun phase(): Phase? = null
 
   fun depends(): List<String> = phase()?.depends() ?: emptyList()
