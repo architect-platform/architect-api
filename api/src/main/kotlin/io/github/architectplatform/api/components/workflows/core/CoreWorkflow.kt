@@ -15,7 +15,7 @@ enum class CoreWorkflow(
   VERIFY("verify", "Verify the project", listOf("lint")),
   BUILD("build", "Build the project", listOf("verify")),
   RUN("run", "Run the project", listOf("build")),
-  TEST("test", "Test the project", listOf("run")),
+  TEST("test", "Test the project", listOf("build")),
   RELEASE("release", "Release the project", listOf("test")),
   PUBLISH("publish", "Publish the project", listOf("release"));
 
